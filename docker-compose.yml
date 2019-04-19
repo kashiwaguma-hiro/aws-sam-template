@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  aws-sam-local:
+    image: cnadiminti/aws-sam-local
+    volumes:
+      - .:/var/opt
+      - /var/run/docker.sock:/var/run/docker.sock # docker内でLambdaのDockerを起動するために必要.
+    ports:
+      - "3000:3000"
+  dynamodb-local:
+    image: amazon/dynamodb-local
+    ports:
+      - "8000:8000"
